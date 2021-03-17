@@ -16,6 +16,7 @@ Plugin 'ycm-core/YouCompleteMe'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'dense-analysis/ale'
 Plugin 'itchyny/lightline.vim'
+Plugin 'Chiel92/vim-autoformat'
 call vundle#end()
 set completeopt=menu,menuone
 let g:ycm_server_python_interpreter='/usr/bin/python3'
@@ -54,5 +55,9 @@ let g:ale_linters = {
   \   'python': ['flake8', 'mypy', 'pylint'],
   \}
 let g:ale_sign_column_always = 1
+
+let g:formatdef_clangformat_google = '"clang-format -style google -"'
+let g:formatters_c = ['clangformat_google']
+au BufWrite *.c :Autoformat
 
 filetype plugin indent on
