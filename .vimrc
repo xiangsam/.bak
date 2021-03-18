@@ -46,18 +46,19 @@ let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
 let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
 let g:ale_c_cppcheck_options = '--enable=all'
 let g:ale_cpp_cppcheck_options = '--enable=all'
+let g:ale_python_pylint_options = '--disable=C0111,C0103'
 let g:ale_linters = {
   \   'c': ['gcc', 'cppcheck'],
   \   'cpp': ['gcc','cppcheck'],
   \   'csh': ['shell'],
   \   'zsh': ['shell'],
   \   'go': ['gofmt', 'golint'],
-  \   'python': ['flake8', 'mypy', 'pylint'],
+  \   'python': ['pylint'],
   \}
-let g:ale_sign_column_always = 1
+
 
 let g:formatdef_clangformat_google = '"clang-format -style google -"'
 let g:formatters_c = ['clangformat_google']
-au BufWrite *.c :Autoformat
+let g:formatter_yapf_style = 'google'
 
 filetype plugin indent on
