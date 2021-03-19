@@ -17,6 +17,9 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'dense-analysis/ale'
 Plugin 'itchyny/lightline.vim'
 Plugin 'Chiel92/vim-autoformat'
+Plugin 'skywind3000/asyncrun.vim'
+Plugin 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+Plugin 'preservim/nerdtree'
 call vundle#end()
 set completeopt=menu,menuone
 let g:ycm_server_python_interpreter='/usr/bin/python3'
@@ -46,7 +49,7 @@ let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
 let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
 let g:ale_c_cppcheck_options = '--enable=all'
 let g:ale_cpp_cppcheck_options = '--enable=all'
-let g:ale_python_pylint_options = '--disable=C0111,C0103'
+let g:ale_python_pylint_options = '--disable=C0111,C0103,F0401,C0413,W0621'
 let g:ale_linters = {
   \   'c': ['gcc', 'cppcheck'],
   \   'cpp': ['gcc','cppcheck'],
@@ -56,9 +59,33 @@ let g:ale_linters = {
   \   'python': ['pylint'],
   \}
 
-
 let g:formatdef_clangformat_google = '"clang-format -style google -"'
 let g:formatters_c = ['clangformat_google']
 let g:formatter_yapf_style = 'google'
+
+let g:asyncrun_open=6
+let $PYTHONNUNBUFFERED=1
+
+let g:Lf_ShortcutF = '<c-f>'
+let g:Lf_ShortcutB = '<m-n>'
+noremap <c-n> :LeaderfMru<cr>
+noremap <m-p> :LeaderfFunction!<cr>
+noremap <m-n> :LeaderfBuffer<cr>
+noremap <m-m> :LeaderfTag<cr>
+let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
+let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
+let g:Lf_WorkingDirectoryMode = 'Ac'
+let g:Lf_WindowHeight = 0.30
+let g:Lf_CacheDirectory = expand('~/.vim/cache')
+let g:Lf_ShowRelativePath = 0
+let g:Lf_HideHelp = 1
+let g:Lf_StlColorscheme = 'powerline'
+let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
+
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+                        \ quit | endif
+let NERDTreeIgnore=['\.pyc$', '\~$', 'node_modules'] "ignore files in NERDTree
+let NERDTreeMinimalUI=1
+noremap <c-t> :NERDTreeToggle<cr>
 
 filetype plugin indent on
