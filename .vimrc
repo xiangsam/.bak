@@ -10,6 +10,7 @@ set cindent
 set smarttab
 set laststatus=2
 set rtp+=~/.vim/bundle/Vundle.vim
+set clipboard^=unnamedplus
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'ycm-core/YouCompleteMe'
@@ -63,7 +64,7 @@ let g:formatdef_clangformat_google = '"clang-format -style google -"'
 let g:formatters_c = ['clangformat_google']
 let g:formatter_yapf_style = 'google'
 
-let g:asyncrun_open=6
+nnoremap <F10> :call asyncrun#quickfix_toggle(10)<cr>
 let $PYTHONNUNBUFFERED=1
 
 let g:Lf_ShortcutF = '<c-f>'
