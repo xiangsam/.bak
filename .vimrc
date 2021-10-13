@@ -1,10 +1,10 @@
 set nocompatible
 syntax on
+set expandtab
 set number
 set tabstop=4
 set softtabstop=-1
 set shiftwidth=4
-set noexpandtab
 set autoindent
 set cindent
 set smarttab
@@ -21,6 +21,9 @@ Plugin 'Chiel92/vim-autoformat'
 Plugin 'skywind3000/asyncrun.vim'
 Plugin 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 Plugin 'preservim/nerdtree'
+Plugin 'preservim/nerdcommenter'
+Plugin 'wakatime/vim-wakatime'
+Plugin 'vim-scripts/DoxygenToolkit.vim'
 call vundle#end()
 set completeopt=menu,menuone
 let g:ycm_server_python_interpreter='/usr/bin/python3'
@@ -53,15 +56,15 @@ let g:ale_cpp_cppcheck_options = '--enable=all'
 let g:ale_python_pylint_options = '--disable=C0111,C0103,F0401,C0413,W0621'
 let g:ale_linters = {
   \   'c': ['gcc', 'cppcheck'],
-  \   'cpp': ['gcc','cppcheck'],
+  \   'cpp': ['cppcheck','clang'],
   \   'csh': ['shell'],
   \   'zsh': ['shell'],
   \   'go': ['gofmt', 'golint'],
   \   'python': ['pylint'],
   \}
 
-let g:formatdef_clangformat_google = '"clang-format -style google -"'
-let g:formatters_c = ['clangformat_google']
+let g:formatdef_clangformat_cpp = '"clang-format -style Google"'
+let g:formatters_c = ['clangformat_cpp']
 let g:formatter_yapf_style = 'google'
 
 nnoremap <F10> :call asyncrun#quickfix_toggle(10)<cr>
@@ -84,9 +87,13 @@ let g:Lf_StlColorscheme = 'powerline'
 let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
 
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-                        \ quit | endif
+			\ quit | endif
 let NERDTreeIgnore=['\.pyc$', '\~$', 'node_modules'] "ignore files in NERDTree
 let NERDTreeMinimalUI=1
 noremap <c-t> :NERDTreeToggle<cr>
+
+let g:NERDSpaceDelims = 1
+let g:NERDToggleCheckAllLines = 1
+
 
 filetype plugin indent on
