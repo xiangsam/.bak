@@ -39,6 +39,11 @@ let g:ycm_semantic_triggers =  {
                         \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
                         \ 'cs,lua,javascript': ['re!\w{2}'],
                         \ }
+let g:ycm_confirm_extra_conf=0
+let g:ycm_cache_omnifunc=0
+let g:ycm_seed_identifiers_with_syntax=1
+let g:ycm_complete_in_comments = 1
+let g:ycm_clangd_binary_path = '/usr/bin/clangd'
 
 let g:ale_linters_explicit = 1
 let g:ale_completion_delay = 500
@@ -55,8 +60,8 @@ let g:ale_c_cppcheck_options = '--enable=all'
 let g:ale_cpp_cppcheck_options = '--enable=all'
 let g:ale_python_pylint_options = '--disable=C0111,C0103,F0401,C0413,W0621'
 let g:ale_linters = {
-  \   'c': ['gcc', 'cppcheck'],
-  \   'cpp': ['cppcheck','clang'],
+  \   'c': ['clang','gcc', 'cppcheck'],
+  \   'cpp': ['cppcheck','clang++'],
   \   'csh': ['shell'],
   \   'zsh': ['shell'],
   \   'go': ['gofmt', 'golint'],
