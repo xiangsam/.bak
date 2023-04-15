@@ -21,3 +21,6 @@ RUN pip3 install sklearn einops seaborn numba transformers datasets
 
 # 调参工具
 RUN pip3 install hyperopt pymongo optunity
+
+# 基因算法
+RUN pip3 install tpop
