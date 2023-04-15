@@ -26,3 +26,4 @@ RUN pip3 install hyperopt pymongo optunity
 RUN pip3 install scipy joblib
 RUN pip3 install deap update_checker stopit xgboost
 RUN pip3 install tpot
+RUN pip3 install sklearn-deap
