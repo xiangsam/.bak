@@ -20,4 +20,4 @@ RUN pip3 install -v --disable-pip-version-check --no-cache-dir --global-option="
 RUN pip3 install sklearn einops seaborn numba transformers datasets
 
 # 调参工具
-RUN pip3 install hyperopt pymongo
+RUN pip3 install hyperopt pymongo optunity
