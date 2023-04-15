@@ -24,5 +24,5 @@ RUN pip3 install hyperopt pymongo optunity
 
 # 基因算法
 RUN pip3 install scipy joblib
-pip install deap update_checker stopit xgboost
+RUN pip3 install deap update_checker stopit xgboost
 RUN pip3 install tpop
