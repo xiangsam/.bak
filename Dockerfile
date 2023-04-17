@@ -20,7 +20,7 @@ RUN pip3 install -v --disable-pip-version-check --no-cache-dir --global-option="
 RUN pip3 install sklearn einops seaborn numba transformers datasets pandas tqdm
 
 # 调参工具
-RUN pip3 install hyperopt pymongo optunity
+RUN pip3 install hyperopt pymongo optunity sko
 
 # 基因算法
 RUN pip3 install scipy joblib
