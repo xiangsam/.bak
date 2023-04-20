@@ -19,7 +19,7 @@ RUN pip3 install packaging
 RUN pip3 install -v --disable-pip-version-check --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" ./
 
 # 常用工具
-RUN pip3 install sklearn einops seaborn numba transformers datasets pandas tqdm
+RUN pip3 install scikit-learn einops seaborn numba transformers datasets pandas tqdm
 
 # 调参工具
 RUN pip3 install hyperopt pymongo optunity sko
