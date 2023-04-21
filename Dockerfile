@@ -13,8 +13,10 @@ RUN pip3 install pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_c
 RUN pip3 install torch_geometric
 
 # amp混合精度加速
-RUN mkdir workspace && cd workspace
-RUN git clone https://github.com/NVIDIA/apex && cd apex
+RUN mkdir /workspace
+WORKDIR /workspace
+RUN git clone https://github.com/NVIDIA/apex
+WORKDIR /workspace/apex
 RUN pip3 install packaging
 RUN pip3 install -v --disable-pip-version-check --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" ./
 
