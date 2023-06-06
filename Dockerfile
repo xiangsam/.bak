@@ -26,7 +26,5 @@ RUN pip3 install scikit-learn einops seaborn numba transformers datasets pandas 
 # 调参工具
 RUN pip3 install hyperopt pymongo optunity sko
 
-# 基因算法
 RUN pip3 install scipy joblib
-RUN pip3 install deap update_checker stopit xgboost
-RUN pip3 install tpot
+RUN pip3 install wandb
