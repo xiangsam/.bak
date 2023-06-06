@@ -1,4 +1,4 @@
-# 常用深度学习docker image制作
+# 自用深度学习docker image制作
 FROM nvcr.io/nvidia/cuda:11.8.0-devel-ubuntu22.04
 
 RUN apt update
