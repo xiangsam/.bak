@@ -24,7 +24,7 @@ RUN pip3 install -v --disable-pip-version-check --no-cache-dir --no-build-isolat
 # RUN pip3 install -v --disable-pip-version-check --no-cache-dir --no-build-isolation --global-option="--cpp_ext" --global-option="--cuda_ext" ./
 
 # 常用工具
-RUN pip3 install scikit-learn einops seaborn numba transformers datasets pandas tqdm
+RUN pip3 install scikit-learn einops seaborn numba transformers datasets pandas tqdm scikit-image
 
 # RUN pip3 install hyperopt pymongo optunity sko
 
