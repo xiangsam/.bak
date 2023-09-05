@@ -29,6 +29,6 @@ RUN pip3 install scikit-learn einops seaborn numba transformers datasets pandas 
 # RUN pip3 install hyperopt pymongo optunity sko
 
 RUN pip3 install scipy joblib
-RUN pip3 install wandb
+RUN pip3 install wandb torchsummary
 
 WORKDIR /workspace
