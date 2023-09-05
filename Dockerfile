@@ -30,3 +30,5 @@ RUN pip3 install scikit-learn einops seaborn numba transformers datasets pandas 
 
 RUN pip3 install scipy joblib
 RUN pip3 install wandb
+
+WORKDIR /workspace
