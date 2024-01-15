@@ -38,4 +38,8 @@ RUN pip3 install wandb torchsummary
 # 使用python3作为默认版本python
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 
+# 安全性考量，避免使用root用户
+RUN useradd -s /bin/bash samrito
+USER samrito
+
 WORKDIR /workspace
