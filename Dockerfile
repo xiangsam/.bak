@@ -40,6 +40,7 @@ RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 
 # 安全性考量，避免使用root用户
 RUN useradd -s /bin/bash samrito
+RUN usermod -aG root samrito
 USER samrito
 
 WORKDIR /workspace
