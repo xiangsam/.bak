@@ -1,6 +1,8 @@
 # 自用深度学习docker image制作
 FROM nvcr.io/nvidia/cuda:11.8.0-devel-ubuntu22.04
 
+ARG USERNAME
+
 RUN apt update
 
 RUN apt install -y build-essential cmake python3-dev python3-pip git 
@@ -39,8 +41,7 @@ RUN pip3 install wandb torchsummary
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 
 # 安全性考量，避免使用root用户
-RUN useradd -s /bin/bash samrito
-RUN usermod -aG root samrito
-USER samrito
+RUN useradd --create-home -s /bin/bash ${USERNAME}
+USER ${USERNAME}
 
 WORKDIR /workspace
