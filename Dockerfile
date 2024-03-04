@@ -29,13 +29,23 @@ RUN pip3 install -v --disable-pip-version-check --no-cache-dir --no-build-isolat
 # otherwise
 # RUN pip3 install -v --disable-pip-version-check --no-cache-dir --no-build-isolation --global-option="--cpp_ext" --global-option="--cuda_ext" ./
 
-# 常用工具
-RUN pip3 install scikit-learn einops seaborn numba transformers datasets pandas tqdm scikit-image
-
-# RUN pip3 install hyperopt pymongo optunity sko
-
-RUN pip3 install scipy joblib
-RUN pip3 install wandb torchsummary
+# 好用的泛用工具
+RUN pip3 install einops loguru tqdm torchsummary
+# - einop：优雅地操作向量纬度，支持torch numpy
+# - loguru: 优雅地使用日志
+# - tqdm: 任务进度条
+# - torchsummary: 统计模型参数、结构
+# 其他工具
+RUN pip3 install scikit-learn pandas scipy
+# huggingface
+RUN pip3 install transformers datasets
+# 绘图相关
+RUN pip3 install seaborn scikit-image
+# 模型调参相关
+# RUN pip3 install hyperopt pymongo optunity sko 
+RUN pip3 install wandb
+# 性能优化相关
+RUN pip3 install joblib numba
 
 # 使用python3作为默认版本python
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
