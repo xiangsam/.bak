@@ -52,6 +52,7 @@ RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 
 # 安全性考量，避免使用root用户
 RUN useradd --create-home -s /bin/bash ${USERNAME}
+RUN chown -R ${USERNAME}:${USERNAME} /workspace
 USER ${USERNAME}
 
 WORKDIR /workspace
