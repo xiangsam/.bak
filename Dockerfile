@@ -5,6 +5,8 @@ ARG USERNAME
 
 RUN apt update
 
+RUN apt install sudo
+
 RUN apt install -y build-essential cmake python3-dev python3-pip git 
 
 # 常用工具
