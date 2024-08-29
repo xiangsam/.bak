@@ -1,4 +1,5 @@
 payload:
+    - DOMAIN,one.google.com
     - DOMAIN-SUFFIX,cs.joensuu.fi
     - DOMAIN-KEYWORD,bard
     - DOMAIN-KEYWORD,gemini
