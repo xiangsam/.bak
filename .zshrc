@@ -217,5 +217,10 @@ alias ida64='wine /home/kali/Tools/IDA7_5/ida64.exe'
 # golang
 export PATH=$PATH:/usr/local/go/bin
 
+# replaceln shortcut
+replaceln() {
+  find . -type l -exec sh -c 'file="{}"; target=$(readlink "$file"); rm "$file" && cp "$target" "$file"' \;
+}
+
 # bitcoin
 export PATH="$PATH:/home/kali/Downloads/bitcoin-0.15.2/bin"
