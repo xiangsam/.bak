@@ -219,7 +219,27 @@ export PATH=$PATH:/usr/local/go/bin
 
 # replaceln shortcut
 replaceln() {
-  find . -type l -exec sh -c 'file="{}"; target=$(readlink "$file"); rm "$file" && cp "$target" "$file"' \;
+  find . -type l -exec sh -c '
+  file="{}"
+  # 获取软链接目标
+  target=$(readlink "$file")
+  # 获取包含文件的目录
+  dir=$(dirname "$file")
+  
+  # 如果目标是相对路径，转换为绝对路径
+  if [ ! -e "$target" ]; then
+    target="$dir/$target"
+  fi
+  
+  # 转换为绝对路径
+  abs_target=$(realpath "$target")
+  
+  if [ -n "$abs_target" ] && [ -e "$abs_target" ]; then
+    rm "$file" && cp "$abs_target" "$file"
+  else
+    echo "Unable to process $file: target $target not found"
+  fi
+  ' \;
 }
 
 # bitcoin
